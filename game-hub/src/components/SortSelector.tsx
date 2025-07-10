@@ -16,7 +16,8 @@ const SortSelector = ({ onSelectSortOrder, selectedSort }: Props) => {
     { value: "-rating", label: "Average rating" },
   ];
 
-  const cuurenrtSortOrder = sortOrders.find(order => order.value === selectedSort)
+  const cuurenrtSortOrder = sortOrders.find(order => order.value === selectedSort);
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>

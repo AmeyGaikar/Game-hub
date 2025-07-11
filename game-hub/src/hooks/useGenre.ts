@@ -1,4 +1,4 @@
-import genre from "@/data/genre";
+import genre from "../data/genre";
 
  export interface Genre {
     id: number,

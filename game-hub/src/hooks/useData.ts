@@ -2,7 +2,7 @@
   import { AxiosRequestConfig, CanceledError } from "axios";
   import { useEffect, useState } from "react";
 
-  interface fetchResponse<T> {
+ export interface fetchResponse<T> {
       count: number,
       results: T[]
   }

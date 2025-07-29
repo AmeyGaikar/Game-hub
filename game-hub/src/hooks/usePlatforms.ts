@@ -15,9 +15,9 @@ const usePlatforms = () =>
     queryFn: () =>
       apiClient
         .get<fetchResponse<Platform>>("/platforms/lists/parents")
-        .then((res) => res.data.results),
+        .then((res) => res.data),
     staleTime: 10 * 1000, //10s
-    initialData: platfroms,
+    initialData: {count: platfroms.length, results: platfroms},
   });
 
 export default usePlatforms;

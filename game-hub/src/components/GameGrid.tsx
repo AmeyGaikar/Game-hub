@@ -13,7 +13,8 @@ const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
   
-  if (error) return <Text> {error.message} </Text>;
+  if (error instanceof Error) return <Text>{error.message}</Text>;
+
 
   return (
     <SimpleGrid

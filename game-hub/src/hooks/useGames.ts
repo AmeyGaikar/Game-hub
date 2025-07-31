@@ -29,7 +29,7 @@ const useGames = (gameQuery: GameQuery) => {
       }
     }),
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.results.length > 0 ? allPages.length + 1 : undefined
+      return lastPage.next ? allPages.length + 1 : undefined
     }
   });
 };

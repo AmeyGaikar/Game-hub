@@ -12,11 +12,11 @@ import useGenre, { Genre } from "../hooks/useGenre";
 import getCroppedImageUrl from "../services/image-url";
 
 interface Prop {
-  onSelectGenre: (genre: number) => void;
-  selectedgenre: number | null;
+  onSelectGenre: (genre: Genre) => void;
+  selectedgenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedgenre }: Prop) => {
+const GenreList = ({ onSelectGenre, selectedgenreId}: Prop) => {
   const { data, isLoading, error } = useGenre();
 
   if (error) return null;
@@ -24,7 +24,9 @@ const GenreList = ({ onSelectGenre, selectedgenre }: Prop) => {
 
   return (
     <>
-      <Heading fontSize={'2xl'} marginBottom={3}>Genres</Heading>
+      <Heading fontSize={"2xl"} marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
@@ -36,9 +38,9 @@ const GenreList = ({ onSelectGenre, selectedgenre }: Prop) => {
                 objectFit="cover"
               />
               <Button
-                fontWeight={selectedgenre === genre.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedgenreId ? "bold" : "normal"}
                 onClick={() => {
-                  onSelectGenre(genre.id);
+                  onSelectGenre(genre);
                 }}
                 fontSize="lg"
                 variant="link"

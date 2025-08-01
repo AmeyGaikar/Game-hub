@@ -10,12 +10,9 @@ interface Props {
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatforms();
-  
-  // const selectedPlatform = data.results.find(
-  //   (p) => p.id === selectedPlatformId
-  // );
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
-  const {selectedPlatform} = usePlatform(selectedPlatformId);
+  console.log(selectedPlatform)
 
   if (error) return null;
   return (
@@ -26,7 +23,10 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
       <MenuList>
         {data?.results.map((platform) => (
           <MenuItem
-            onClick={() => onSelectPlatform(platform)}
+            onClick={() => {
+              console.log({platform})
+              onSelectPlatform(platform);
+            }}
             key={platform.id}
           >
             {platform.name}

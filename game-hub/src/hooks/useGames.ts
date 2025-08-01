@@ -16,6 +16,7 @@ const useGames = (gameQuery: GameQuery) => {
   const apiClient = new APIClient<Game>("/games");
   const pageSize = 10;
 
+  console.log(gameQuery);
   return useInfiniteQuery({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam = 1 }) =>

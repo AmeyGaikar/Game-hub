@@ -1,10 +1,8 @@
 import useGenres from "./useGenres";
 
-const useGenre = (genreId?: number) => {
+const useGenre = (id?: number) => {
   const { data: genres } = useGenres();
-  const genre = genres.results.find((g) => g.id === genreId);
-
-  return {genre}
+  return genres?.results.find((g) => g.id === id);
 }
 
 export default useGenre

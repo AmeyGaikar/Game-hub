@@ -29,15 +29,21 @@ const PlatformIconList = ({ platforms }: Props) => {
     ios: MdPhoneIphone,
     web: BsGlobe,
   };
+
   return (
     <HStack marginY={1}>
-      {platforms.map((platform) => (
-        <Icon
-          key={platform.id}
-          as={iconMap[platform.slug]}
-          color={"gray.500"}
-        />
-      ))}
+      {platforms.map((platform) => {
+        const IconComponent = iconMap[platform.slug];
+        if (!IconComponent) return null;
+
+        return (
+          <Icon
+            key={platform.id}
+            as={IconComponent}
+            color={"gray.500"}
+          />
+        );
+      })}
     </HStack>
   );
 };

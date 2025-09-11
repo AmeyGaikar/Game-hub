@@ -1,3 +1,4 @@
+import { error } from 'console'
 import GameGrid from '../components/GameGrid'
 import GameHeading from '../components/GameHeading'
 import GenreList from '../components/GenreList'
@@ -6,6 +7,7 @@ import SortSelector from '../components/SortSelector'
 import { Grid, Show, GridItem, Box, Flex } from '@chakra-ui/react'
 
 const HomePage = () => {
+  throw new Error('Something failed');
   return (
           <Grid
         templateAreas={{

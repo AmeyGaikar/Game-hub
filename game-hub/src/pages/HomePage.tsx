@@ -7,7 +7,6 @@ import SortSelector from '../components/SortSelector'
 import { Grid, Show, GridItem, Box, Flex } from '@chakra-ui/react'
 
 const HomePage = () => {
-  throw new Error('Something failed');
   return (
           <Grid
         templateAreas={{

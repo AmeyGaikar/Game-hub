@@ -12,7 +12,7 @@ const GameAttributes = ({ game }: Props) => {
     <SimpleGrid as={"dl"} columns={2}>
       <DefinitionItem term="Platforms">
         {game.parent_platforms.map(({ platform }) => (
-          <Text> {platform.name} </Text>
+          <Text key={platform.id}> {platform.name} </Text>
         ))}
       </DefinitionItem>
 
@@ -22,13 +22,13 @@ const GameAttributes = ({ game }: Props) => {
 
       <DefinitionItem term="Genres">
         {game.genres.map((g) => (
-          <Text> {g.name} </Text>
+          <Text key={g.id}> {g.name} </Text>
         ))}
       </DefinitionItem>
 
       <DefinitionItem term="Publishers">
         {game.publishers.map((p) => (
-          <Text> {p.name} </Text>
+          <Text key={p.id}> {p.name} </Text>
         ))}
       </DefinitionItem>
     </SimpleGrid>
